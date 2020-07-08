@@ -16,19 +16,22 @@ public class ThreadStuff {
 //        redThread.join();
 //        blueThread.join();
 
+        // Create two sample summing threads (these compute the sum of 
+        // the integers from 1 to the value they are passed)
         SummingThread t1 = new SummingThread(100);
         SummingThread t2 = new SummingThread(1000);
         
+        // Start up the threads
         t1.start();
         t2.start();
         
+        // Join back to the threads when they've finished
         t1.join();
         t2.join();
         
+        // print the results
         System.out.println("t1 result is " + t1.getSum());
         System.out.println("t2 result is " + t2.getSum());
-        
-        Thread.sleep(3000);
         
         System.out.println("Done!");
     }
